@@ -9,5 +9,5 @@ package DBConnect;
  * @author Dell
  */
 public class NewClass {
-    
+    private String ma, ten;
 }
