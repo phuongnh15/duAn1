@@ -11,4 +11,6 @@ package DBConnect;
 public class NewClass {
     private String ma, ten;
     private int slh;
+    private double luong;
+   // anh van giu nguye n đc khi kéo ve
 }
