@@ -5,11 +5,12 @@
 package View;
 
 import View.form.Form_BC;
+import View.form.Form_HD1;
+import View.form.Form_KH;
 import View.form.Form_BH;
-import View.form.Form_DT;
-import View.form.Form_HD;
+import View.form.Form_KM;
 import View.form.Form_SP;
-import View.form.Form_home;
+import View.form.Form_NhanVien;
 import com.raven.event.EventMenuSelected;
 import java.awt.Color;
 import javax.swing.JComponent;
@@ -23,42 +24,42 @@ public class Main extends javax.swing.JFrame {
     /**
      * Creates new form Main
      */
-    private Form_home home;
-    private Form_BH banhang;
+    private Form_NhanVien home;
+    private Form_HD1 banhang;
 
     public Main() {
         initComponents();
         setLocationRelativeTo(null);
         setBackground(new Color(0, 0, 0, 0));
         menu1.initMoving(Main.this);
-        home = new Form_home();
-        banhang = new Form_BH();
+        home = new Form_NhanVien();
+        banhang = new Form_HD1();
 
         menu1.addEventMenuSelected(new EventMenuSelected() {
             @Override
             public void selected(int index) {
                 System.out.println("index" + index);
-                if (index == 0) {
+                if (index == 10) {
                     setForm(home);
-                } else if (index == 2) {
+                } else if (index == 0) {
                     setForm(banhang);
-                } else if (index == 4) {
-                    setForm(new Form_HD());
+                } else if (index == 2) {
+                    setForm(new Form_BH());
 
-                } else if (index == 6) {
+                } else if (index == 4) {
                     setForm(new Form_SP());
 
-                } else if (index == 8) {
+                } else if (index == 6) {
                     setForm(new Form_BC());
 
-                } else if (index == 10) {
-                    setForm(new Form_DT());
+                } else if (index == 8) {
+                    setForm(new Form_KH());
                 } else if (index == 12) {
-                    dispose();
+                    setForm(new Form_KM());
                 }
             }
         });
-        setForm(new Form_home());
+        setForm(new Form_NhanVien());
     }
 
     /**
@@ -76,6 +77,7 @@ public class Main extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
+        setPreferredSize(new java.awt.Dimension(1300, 740));
 
         mainPanel.setOpaque(false);
         mainPanel.setLayout(new java.awt.BorderLayout());
