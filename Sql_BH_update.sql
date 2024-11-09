@@ -6,7 +6,7 @@ use BanLapTopDell
 create triggrer
 select * from kxjcnwcwcwjhci
 
-
+ccancalkccccj
 
 
 
