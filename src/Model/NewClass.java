@@ -9,5 +9,7 @@ package Model;
  * @author Admin
  */
 public class NewClass {
-    
+    private String ma, ten;
+    private int solg;
+    private double luong;
 }
