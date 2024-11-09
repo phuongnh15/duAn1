@@ -9,6 +9,6 @@ package DBConnect;
  * @author Dell
  */
 public class NewClass {
-     private String ma, ten;
-    private int slg;
+    private String ma, ten;
+   // anh van giu nguye n đc khi kéo ve
 }
