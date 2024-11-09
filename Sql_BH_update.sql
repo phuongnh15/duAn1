@@ -3,6 +3,11 @@ use BanLapTopDell
 
 
 -- Thay doi cua Phuong
+create triggrer
+
+
+
+
 
 
 -- Thay doi cua Long
