@@ -5,7 +5,7 @@
 package View;
 
 import View.form.Form_BC;
-import View.form.Form_HD;
+import form.Form_HoaDon;
 import View.form.Form_KH;
 import View.form.Form_BH;
 import View.form.Form_KM;
@@ -25,7 +25,7 @@ public class Main extends javax.swing.JFrame {
      * Creates new form Main
      */
     private Form_NhanVien home;
-    private Form_HD banhang;
+    private Form_HoaDon banhang;
 
     public Main() {
         initComponents();
@@ -33,7 +33,7 @@ public class Main extends javax.swing.JFrame {
         setBackground(new Color(0, 0, 0, 0));
         menu1.initMoving(Main.this);
         home = new Form_NhanVien();
-        banhang = new Form_HD();
+        banhang = new Form_HoaDon();
 
         menu1.addEventMenuSelected(new EventMenuSelected() {
             @Override

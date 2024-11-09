@@ -2,19 +2,35 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
-package View.form;
+package form;
+
+import Model.Model_HoaDon;
+import Repository.Repository_HoaDon;
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
  * @author macbook
  */
-public class Form_HD extends javax.swing.JPanel {
+public class Form_HoaDon extends javax.swing.JPanel {
 
-    /**
-     * Creates new form Form_SP
-     */
-    public Form_HD() {
+    private Repository.Repository_HoaDon repo_HD = new Repository_HoaDon();
+    private DefaultTableModel model = new DefaultTableModel();
+    private int index = -1;
+
+    public Form_HoaDon() {
         initComponents();
+        fillTable(repo_HD.getAll());
+    }
+
+    void fillTable(ArrayList<Model.Model_HoaDon> list) {
+        model = (DefaultTableModel) tbl_DSHD.getModel();
+        model.setRowCount(0);
+        for (Model_HoaDon model_HoaDon : list) {
+            model.addRow(model_HoaDon.ToDataRow());
+        }
     }
 
     /**
@@ -110,17 +126,37 @@ public class Form_HD extends javax.swing.JPanel {
                 "Mã HD", "Mã KH", "Tên KH", "SĐT", "Id_NV", "Ngày thanh toán", "Tổng tiền BĐ", "Tổng tiền KM", "Mã Voucher", "Tổng tiền sau KM", "Trạng thái"
             }
         ));
+        tbl_DSHD.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tbl_DSHDMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(tbl_DSHD);
 
         buttonGroup1.add(rdo_tatca);
         rdo_tatca.setSelected(true);
         rdo_tatca.setText("Tất cả");
+        rdo_tatca.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rdo_tatcaActionPerformed(evt);
+            }
+        });
 
         buttonGroup1.add(rdo_chothanhtoan);
         rdo_chothanhtoan.setText("Chờ thanh toán");
+        rdo_chothanhtoan.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rdo_chothanhtoanActionPerformed(evt);
+            }
+        });
 
         buttonGroup1.add(rdo_dathanhtoan);
         rdo_dathanhtoan.setText("Đã thanh toán");
+        rdo_dathanhtoan.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rdo_dathanhtoanActionPerformed(evt);
+            }
+        });
 
         btn_timKiem_HD.setBackground(new java.awt.Color(51, 153, 255));
         btn_timKiem_HD.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -140,6 +176,11 @@ public class Form_HD extends javax.swing.JPanel {
         btn_huyHD.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btn_huyHD.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/Delete.png"))); // NOI18N
         btn_huyHD.setText("Hủy Hóa Đơn");
+        btn_huyHD.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_huyHDActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -236,6 +277,56 @@ public class Form_HD extends javax.swing.JPanel {
     private void txt_searchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_searchActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txt_searchActionPerformed
+
+    private void rdo_tatcaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdo_tatcaActionPerformed
+        // TODO add your handling code here:
+        fillTable(repo_HD.getAll());
+    }//GEN-LAST:event_rdo_tatcaActionPerformed
+
+    private void rdo_chothanhtoanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdo_chothanhtoanActionPerformed
+        // TODO add your handling code here:
+        fillTable(repo_HD.loc(false));
+    }//GEN-LAST:event_rdo_chothanhtoanActionPerformed
+
+    private void rdo_dathanhtoanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdo_dathanhtoanActionPerformed
+        // TODO add your handling code here:
+        fillTable(repo_HD.loc(true));
+    }//GEN-LAST:event_rdo_dathanhtoanActionPerformed
+
+    private void btn_huyHDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_huyHDActionPerformed
+        // TODO add your handling code here:
+        if (rdo_chothanhtoan.isSelected()) {
+            if (index < 0) {
+                JOptionPane.showMessageDialog(this, "Ban chua chon dong de xoa");
+                return;
+            } else {
+                int chon = JOptionPane.showConfirmDialog(this, "Ban muon xoa khong");
+                if (chon == 0) {
+                    String ma_xoa = tbl_DSHD.getValueAt(index, 0).toString();
+                    repo_HD.xoa(ma_xoa, false);
+                    fillTable(repo_HD.loc(false));
+                }else{
+                    JOptionPane.showMessageDialog(this, "Khong xoa");
+                }
+            }
+        }
+
+//        if (index < 0) {
+//            JOptionPane.showMessageDialog(this, "Ban chua chon dong de xoa");
+//            return;
+//        } else {
+//            if (rdo_chothanhtoan.isSelected()) {
+//                String ma_xoa = tbl_DSHD.getValueAt(index, 0).toString();
+//                repo_HD.xoa(ma_xoa, false);
+//                fillTable(repo_HD.getAll());
+//            }
+//        }
+    }//GEN-LAST:event_btn_huyHDActionPerformed
+
+    private void tbl_DSHDMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbl_DSHDMouseClicked
+        // TODO add your handling code here:
+        index = tbl_DSHD.getSelectedRow();
+    }//GEN-LAST:event_tbl_DSHDMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

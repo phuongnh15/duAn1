@@ -5,7 +5,7 @@
 package View.form;
 
 import Model.Model_SanPham;
-import Reponsitory.reponsitory_SanPham;
+import Repository.reponsitory_SanPham;
 import com.sun.tools.javac.Main;
 import java.awt.BorderLayout;
 import java.awt.Color;

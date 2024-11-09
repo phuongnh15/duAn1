@@ -3,12 +3,11 @@ use BanLapTopDell
 
 
 -- Thay doi cua Phuong
-create triggrer
-select * from kxjcnwcwcwjhci
+select mahoadon, kh.makhachhang, kh.ten, kh.sodienthoai, id_nhanvien, ngaythanhtoan, tongtienBanDau, tongkhuyenmai, maVoucher, tongtienSauKM, trangthai from HoaDon hd
+join KhachHang kh on kh.makhachhang = hd.makhachhang where trangthai = ?
 
-ccancalkccccj
-
-
+delete from HoaDonChiTiet where mahoadon = ?
+delete from HoaDon where mahoadon = ?
 
 -- Thay doi cua Long
 
