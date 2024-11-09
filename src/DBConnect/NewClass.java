@@ -10,4 +10,5 @@ package DBConnect;
  */
 public class NewClass {
     private String ma, ten;
+    private int slh;
 }
