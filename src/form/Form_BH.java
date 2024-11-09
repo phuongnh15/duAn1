@@ -138,7 +138,7 @@ public class Form_BH extends javax.swing.JPanel {
                 {null, null, null, null, null, null}
             },
             new String [] {
-                "STT", "Mã SP", "Đơn giá", "Số lượng", "GIảm giá", "Thành tiền"
+                "STT", "Mã SP", "Đơn giá", "Số lượng", "Imei", "Thành tiền"
             }
         ));
         jScrollPane2.setViewportView(tbl_GioHang);
