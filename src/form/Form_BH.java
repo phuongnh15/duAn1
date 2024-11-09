@@ -128,7 +128,7 @@ public class Form_BH extends javax.swing.JPanel {
 
         btn_XoaGioHang.setBackground(new java.awt.Color(102, 255, 255));
         btn_XoaGioHang.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        btn_XoaGioHang.setText("Xóa");
+        btn_XoaGioHang.setText("Xóoa");
 
         tbl_GioHang.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -258,7 +258,7 @@ public class Form_BH extends javax.swing.JPanel {
                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(btn_TimKiem_SDT)
                             .addComponent(btn_ThemMoiKH))))
-                .addContainerGap(12, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
