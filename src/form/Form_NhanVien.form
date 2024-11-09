@@ -242,7 +242,7 @@
             </Component>
             <Component class="javax.swing.JButton" name="btn_ThemNV">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Th&#xea;mm"/>
+                <Property name="text" type="java.lang.String" value="Th"/>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                   <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
                     <LineBorder>
