@@ -325,7 +325,7 @@ public class Form_BH extends javax.swing.JPanel {
 
         btn_ThanhToan.setBackground(new java.awt.Color(102, 255, 255));
         btn_ThanhToan.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        btn_ThanhToan.setText("Thanh Toán");
+        btn_ThanhToan.setText("Thanh ");
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
