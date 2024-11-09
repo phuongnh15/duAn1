@@ -128,7 +128,7 @@ public class Form_BH extends javax.swing.JPanel {
 
         btn_XoaGioHang.setBackground(new java.awt.Color(102, 255, 255));
         btn_XoaGioHang.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        btn_XoaGioHang.setText("Xóoa");
+        btn_XoaGioHang.setText("Xóoaa");
 
         tbl_GioHang.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
