@@ -99,7 +99,7 @@ public class Form_NhanVien extends javax.swing.JPanel {
 
         jLabel7.setText("Mật Khẩu");
 
-        btn_ThemNV.setText("Thêm");
+        btn_ThemNV.setText("Thêmm");
         btn_ThemNV.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
 
         btn_XoaNV.setText("Xóa");
