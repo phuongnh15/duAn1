@@ -4,7 +4,7 @@ use BanLapTopDell
 
 -- Thay doi cua Phuong
 create triggrer
-
+select * from kxjcnwcwcwjhci
 
 
 
