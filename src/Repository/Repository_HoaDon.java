@@ -89,4 +89,36 @@ public class Repository_HoaDon {
             return 0;
         }
     }
+    
+    
+    public ArrayList<Model.Model_HoaDon> timkiemHD(String macantim){
+        ArrayList<Model.Model_HoaDon> list_HD = new ArrayList<>();
+        sql = "select mahoadon, kh.makhachhang, kh.ten, kh.sodienthoai, id_nhanvien, ngaythanhtoan, tongtienBanDau, tongkhuyenmai, maVoucher, tongtienSauKM, trangthai from HoaDon hd\n" +
+"join KhachHang kh on kh.makhachhang = hd.makhachhang where mahoadon = ?";
+        try {
+            con = DBConnect.DBConnect_Phuong.getConnection();
+            ps = con.prepareStatement(sql);
+            ps.setObject(1, macantim);
+            rs = ps.executeQuery();
+            while(rs.next()) {
+                String maHD = rs.getString(1);
+                String maKH = rs.getString(2);
+                String tenKH = rs.getString(3);
+                String sdt = rs.getString(4);
+                String id_NV = rs.getString(5);
+                String ngaythanhtoan = rs.getString(6);
+                double tongtienBD = rs.getDouble(7);
+                double tongKM = rs.getDouble(8);
+                String maVoucher = rs.getString(9);
+                double tongtiensauKM = rs.getDouble(10);
+                boolean tt = rs.getBoolean(11);
+                Model.Model_HoaDon hd = new Model_HoaDon(maHD, maKH, tenKH, sdt, id_NV, ngaythanhtoan, maVoucher, tongtienBD, tongKM, tongtiensauKM, tt);
+                list_HD.add(hd);
+            }
+            return list_HD;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
 }
