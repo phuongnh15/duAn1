@@ -172,6 +172,11 @@ public class Form_HoaDon extends javax.swing.JPanel {
         btn_xuatExcel.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btn_xuatExcel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/icons8-excel-48.png"))); // NOI18N
         btn_xuatExcel.setText("Xuất Excel");
+        btn_xuatExcel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_xuatExcelActionPerformed(evt);
+            }
+        });
 
         btn_huyHD.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btn_huyHD.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/Delete.png"))); // NOI18N
@@ -310,23 +315,18 @@ public class Form_HoaDon extends javax.swing.JPanel {
                 }
             }
         }
-
-//        if (index < 0) {
-//            JOptionPane.showMessageDialog(this, "Ban chua chon dong de xoa");
-//            return;
-//        } else {
-//            if (rdo_chothanhtoan.isSelected()) {
-//                String ma_xoa = tbl_DSHD.getValueAt(index, 0).toString();
-//                repo_HD.xoa(ma_xoa, false);
-//                fillTable(repo_HD.getAll());
-//            }
-//        }
     }//GEN-LAST:event_btn_huyHDActionPerformed
 
     private void tbl_DSHDMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbl_DSHDMouseClicked
         // TODO add your handling code here:
         index = tbl_DSHD.getSelectedRow();
     }//GEN-LAST:event_tbl_DSHDMouseClicked
+
+    private void btn_xuatExcelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_xuatExcelActionPerformed
+        // TODO add your handling code here:
+        // Hỏi người dùng xác nhận có muốn xuất file không
+        
+    }//GEN-LAST:event_btn_xuatExcelActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
