@@ -227,6 +227,15 @@ INSERT INTO Voucher (maVoucher, moTa, giamGia, giamGiaToiDa, hinhThucGiamGia, ng
 ('FREESHIP', N'Miễn phí vận chuyển', NULL, NULL, 2, '2024-01-01', '2024-12-31', N'Không yêu cầu điều kiện'),
 ('VOUCHER5', N'Giảm 5%', 5, 300000, 1, '2024-01-01', '2024-12-31', N'Áp dụng cho đơn hàng trên 3 triệu');
 
+
+INSERT INTO NhanVien (id_nhanVien, ten, soDienThoai, email, gioiTinh, taiKhoan, matKhau)
+VALUES 
+    ('NV001', N'Nguyễn Văn A', '0901234567', 'nva@example.com', 1, 'nguyenvana', 'password1'),
+    ('NV002', N'Trần Thị B', '0912345678', 'ttb@example.com', 0, 'tranthib', 'password2'),
+    ('NV003', N'Phạm Văn C', '0923456789', 'pvc@example.com', 1, 'phamvanc', 'password3'),
+    ('NV004', N'Lê Thị D', '0934567890', 'ltd@example.com', 0, 'lethid', 'password4'),
+    ('NV005', N'Hoàng Văn E', '0945678901', 'hve@example.com', 1, 'hoangvane', 'password5');
+
 -- Dữ liệu mẫu cho bảng HoaDon
 INSERT INTO HoaDon (mahoadon, tongtienBanDau, makhachhang, maVoucher, tongkhuyenmai, ngaythanhtoan, trangthai, tongtienSauKM, id_nhanvien) VALUES
     ('HD001', 15000000, 'KH001', 'VOUCHER10', 500000, '2024-01-15', 1, 14500000, 'NV001'),
@@ -268,13 +277,7 @@ INSERT INTO ThongKeDoanhThu (thang, ngay, nam, tongdoanhthu, tonghoadon, tongspb
 (5, 15, 2024, 160000000, 1, 8);
 
 -- Dữ liệu mẫu bảng NhanVien
-INSERT INTO NhanVien (id_nhanVien, ten, soDienThoai, email, gioiTinh, taiKhoan, matKhau)
-VALUES 
-    ('NV001', N'Nguyễn Văn A', '0901234567', 'nva@example.com', 1, 'nguyenvana', 'password1'),
-    ('NV002', N'Trần Thị B', '0912345678', 'ttb@example.com', 0, 'tranthib', 'password2'),
-    ('NV003', N'Phạm Văn C', '0923456789', 'pvc@example.com', 1, 'phamvanc', 'password3'),
-    ('NV004', N'Lê Thị D', '0934567890', 'ltd@example.com', 0, 'lethid', 'password4'),
-    ('NV005', N'Hoàng Văn E', '0945678901', 'hve@example.com', 1, 'hoangvane', 'password5');
+
 
 -- 1. Lấy danh sách CPU
 SELECT * FROM Cpu;
