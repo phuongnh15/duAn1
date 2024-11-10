@@ -4,7 +4,9 @@
  */
 package View.form;
 
+import Model.Model_Imei_Sp;
 import Model.Model_SanPham;
+import Repository.Repository_IMei;
 import Repository.reponsitory_SanPham;
 import com.sun.tools.javac.Main;
 import java.awt.BorderLayout;
@@ -42,12 +44,15 @@ public class Form_SP extends javax.swing.JPanel {
      */
     DefaultTableModel model;
     DefaultTableModel model_SPChitiet;
+    DefaultTableModel model_SPImei;
     private reponsitory_SanPham rp = new reponsitory_SanPham();
+    private Repository_IMei rp_imei = new Repository_IMei();
 
     public Form_SP() {
         initComponents();
         fillToTable(rp.gettAll_Sp());
-//        fillToTable_ChiTiet(rp.gettAll_SpChiTiet());
+        fillToTable_ChiTiet(rp.gettAll_SpChiTiet());
+        fillTo_Imei(rp_imei.getAll());
        
     }
 
@@ -56,6 +61,13 @@ public class Form_SP extends javax.swing.JPanel {
         model.setRowCount(0);
         for (Model_SanPham d : ds) {
             model.addRow((Object[]) d.toDataSP());
+        }
+    }
+    void fillTo_Imei(ArrayList<Model_Imei_Sp> ds) {
+        model_SPImei = (DefaultTableModel) tbl_sp.getModel();
+        model_SPImei.setRowCount(0);
+        for (Model_Imei_Sp d : ds) {
+            model_SPImei.addRow((Object[]) d.toDataRow());
         }
     }
 
