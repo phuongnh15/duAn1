@@ -4,16 +4,12 @@
  */
 package View.form;
 
-import java.awt.BorderLayout;
-import java.awt.Color;
-import org.jfree.chart.ChartFactory;
-import org.jfree.chart.ChartPanel;
-import org.jfree.chart.JFreeChart;
-import org.jfree.chart.plot.CategoryPlot;
-import org.jfree.chart.plot.PlotOrientation;
-import org.jfree.chart.renderer.category.BarRenderer;
-import org.jfree.chart.renderer.category.LineAndShapeRenderer;
-import org.jfree.data.category.DefaultCategoryDataset;
+import Model.Model_KhachHang;
+import Repository.repository_KhachHang;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import javax.swing.table.DefaultTableModel;
+
 
 /**
  *
@@ -24,11 +20,28 @@ public final class Form_KH extends javax.swing.JPanel {
     /**
      * Creates new form Form_SP
      */
+    
+    
+    DefaultTableModel model;
+    repository_KhachHang rpkH=new repository_KhachHang();    
     public Form_KH() {
         initComponents();
       
+
+        loadData(rpkH.getData());
         
     }
+    public void loadData(ArrayList<Model_KhachHang> lst){
+       
+        model=(DefaultTableModel) tbl_khachHang.getModel();
+        model.setRowCount(0);
+        for (Model_KhachHang kh : lst) {
+            Object[] row = {kh.getMaKH(), kh.getTenKH(), kh.getSDT(), kh.getEmail(), kh.getDiaChi(), kh.isGioiTinh()?"Nam":"Nữ"};
+            model.addRow(row);
+        }
+
+    }
+ 
 
    
 

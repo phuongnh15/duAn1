@@ -338,62 +338,62 @@ public class Form_HoaDon extends javax.swing.JPanel {
 
     private void btn_xuatExcelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_xuatExcelActionPerformed
         // Ask the user to confirm if they want to export the file
-        int confirm = JOptionPane.showConfirmDialog(this, "Bạn có muốn xuất file không?", "Xác nhận", JOptionPane.YES_NO_OPTION);
-        if (confirm != JOptionPane.YES_OPTION) {
-            return;
-        }
-
-        try {
-            String path = "";
-            JFileChooser jFileChooser = new JFileChooser(path);
-            jFileChooser.showSaveDialog(this);
-            File saveFile = jFileChooser.getSelectedFile();
-
-            if (saveFile != null) {
-                // Ensure file has .xlsx extension
-                if (!saveFile.toString().endsWith(".xlsx")) {
-                    saveFile = new File(saveFile.toString() + ".xlsx");
-                }
-
-                Workbook wb = new XSSFWorkbook();
-                Sheet sheet = (Sheet) wb.createSheet("Account");
-
-                // Write column headers
-                Row rowCol = sheet.createRow(0);
-                for (int i = 0; i < tbl_DSHD.getColumnCount(); i++) {
-                    Cell cell = rowCol.createCell(i);
-                    cell.setCellValue(tbl_DSHD.getColumnName(i));
-                }
-
-                // Write table data
-                for (int j = 0; j < tbl_DSHD.getRowCount(); j++) {
-                    Row row = sheet.createRow(j + 1);
-                    for (int k = 0; k < tbl_DSHD.getColumnCount(); k++) {
-                        Cell cell = row.createCell(k);
-                        if (tbl_DSHD.getValueAt(j, k) != null) {
-                            cell.setCellValue(tbl_DSHD.getValueAt(j, k).toString());
-                        }
-                    }
-                }
-
-                // Save the file
-                try (FileOutputStream out = new FileOutputStream(saveFile)) {
-                    wb.write(out);
-                }
-                wb.close();
-
-                // Show success message
-                JOptionPane.showMessageDialog(this, "Lưu file thành công!", "Thông báo", JOptionPane.INFORMATION_MESSAGE);
-
-                // Open the file after saving successfully
-                EventStream.openFile(saveFile.toPath());
-            }
-        } catch (HeadlessException | IOException e) {
-            // Show error message if there's an issue saving the file
-            JOptionPane.showMessageDialog(this, "Đã có lỗi xảy ra khi lưu file!", "Lỗi", JOptionPane.ERROR_MESSAGE);
-            e.printStackTrace();
-        }
-
+//        int confirm = JOptionPane.showConfirmDialog(this, "Bạn có muốn xuất file không?", "Xác nhận", JOptionPane.YES_NO_OPTION);
+//        if (confirm != JOptionPane.YES_OPTION) {
+//            return;
+//        }
+//
+//        try {
+//            String path = "";
+//            JFileChooser jFileChooser = new JFileChooser(path);
+//            jFileChooser.showSaveDialog(this);
+//            File saveFile = jFileChooser.getSelectedFile();
+//
+//            if (saveFile != null) {
+//                // Ensure file has .xlsx extension
+//                if (!saveFile.toString().endsWith(".xlsx")) {
+//                    saveFile = new File(saveFile.toString() + ".xlsx");
+//                }
+//
+//                Workbook wb = new XSSFWorkbook();
+//                Sheet sheet = (Sheet) wb.createSheet("Account");
+//
+//                // Write column headers
+//                Row rowCol = sheet.createRow(0);
+//                for (int i = 0; i < tbl_DSHD.getColumnCount(); i++) {
+//                    Cell cell = rowCol.createCell(i);
+//                    cell.setCellValue(tbl_DSHD.getColumnName(i));
+//                }
+//
+//                // Write table data
+//                for (int j = 0; j < tbl_DSHD.getRowCount(); j++) {
+//                    Row row = sheet.createRow(j + 1);
+//                    for (int k = 0; k < tbl_DSHD.getColumnCount(); k++) {
+//                        Cell cell = row.createCell(k);
+//                        if (tbl_DSHD.getValueAt(j, k) != null) {
+//                            cell.setCellValue(tbl_DSHD.getValueAt(j, k).toString());
+//                        }
+//                    }
+//                }
+//
+//                // Save the file
+//                try (FileOutputStream out = new FileOutputStream(saveFile)) {
+//                    wb.write(out);
+//                }
+//                wb.close();
+//
+//                // Show success message
+//                JOptionPane.showMessageDialog(this, "Lưu file thành công!", "Thông báo", JOptionPane.INFORMATION_MESSAGE);
+//
+//                // Open the file after saving successfully
+//                EventStream.openFile(saveFile.toPath());
+//            }
+//        } catch (HeadlessException | IOException e) {
+//            // Show error message if there's an issue saving the file
+//            JOptionPane.showMessageDialog(this, "Đã có lỗi xảy ra khi lưu file!", "Lỗi", JOptionPane.ERROR_MESSAGE);
+//            e.printStackTrace();
+//        }
+//
     }//GEN-LAST:event_btn_xuatExcelActionPerformed
 
 
