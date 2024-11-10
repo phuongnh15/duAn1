@@ -46,7 +46,7 @@ public class Form_SP extends javax.swing.JPanel {
 
     public Form_SP() {
         initComponents();
-//        fillToTable(rp.gettAll_Sp());
+        fillToTable(rp.gettAll_Sp());
 //        fillToTable_ChiTiet(rp.gettAll_SpChiTiet());
        
     }

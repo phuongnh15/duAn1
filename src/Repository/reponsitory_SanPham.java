@@ -17,10 +17,11 @@ public class reponsitory_SanPham {
     private String sql = null;
 
     public ArrayList<Model_SanPham> gettAll_Sp() {
+        
         ArrayList<Model_SanPham> ds = new ArrayList<Model_SanPham>();
         sql = "	select masp,tenSP  from SanPham";
         try {
-            con = DBConnect.DBConnect.getConnection();
+            con = DBConnect.DBConnect_Cong.getConnection();
             pr = con.prepareStatement(sql);
             rs = pr.executeQuery();
             int id = 1;
@@ -38,10 +39,10 @@ public class reponsitory_SanPham {
 
     public ArrayList<Model_SanPham> gettAll_SpChiTiet() {
         ArrayList<Model_SanPham> ds = new ArrayList<>();
-        sql = "SELECT masp, tenSP, soluongtonkho, gia, cpu, gpu, ram, mausac, dungLuong, hinhAnh FROM SanPham";
+        sql = "SELECT masp, tenSP, soluongtonkho, gia, cpu, gpu, ram, mausac, dungLuong FROM SanPham";
 
         try {
-            con = DBConnect.DBConnect.getConnection();
+            con = DBConnect.DBConnect_Cong.getConnection();
             pr = con.prepareStatement(sql);
             rs = pr.executeQuery();
 
@@ -56,8 +57,7 @@ public class reponsitory_SanPham {
                         rs.getString("gpu"),
                         rs.getString("ram"),
                         rs.getString("mausac"),
-                        rs.getString("dungLuong"),
-                        rs.getString("hinhAnh")
+                        rs.getString("dungLuong")
                 );
                 ds.add(sp);
             }

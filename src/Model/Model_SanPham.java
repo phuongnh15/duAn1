@@ -10,7 +10,7 @@ public class Model_SanPham {
     private String ram;
     private String mauSac;
     private String dungLuong;
-    private String hinhAnh; 
+  
     private int id;
 
     public int getId() {
@@ -28,7 +28,7 @@ public class Model_SanPham {
   
     public Model_SanPham(String maSP, String tenSP, int soLuongTonKho, double gia, 
                          String cpu, String gpu, String ram, String mauSac, 
-                         String dungLuong, String hinhAnh) {
+                         String dungLuong) {
         this.maSP = maSP;
         this.tenSP = tenSP;
         this.soLuongTonKho = soLuongTonKho;
@@ -38,7 +38,7 @@ public class Model_SanPham {
         this.ram = ram;
         this.mauSac = mauSac;
         this.dungLuong = dungLuong;
-        this.hinhAnh = hinhAnh;
+       
     }
 
   
@@ -114,13 +114,7 @@ public class Model_SanPham {
         this.dungLuong = dungLuong;
     }
 
-    public String getHinhAnh() {
-        return hinhAnh;
-    }
-
-    public void setHinhAnh(String hinhAnh) {
-        this.hinhAnh = hinhAnh;
-    }
+   
 
     public Model_SanPham(String maSP, String tenSP, int id) {
         this.maSP = maSP;
@@ -130,21 +124,7 @@ public class Model_SanPham {
     
 
     // Phương thức toString để hiển thị thông tin sản phẩm
-    @Override
-    public String toString() {
-        return "Model_SanPham{" +
-                "maSP='" + maSP + '\'' +
-                ", tenSP='" + tenSP + '\'' +
-                ", soLuongTonKho=" + soLuongTonKho +
-                ", gia=" + gia +
-                ", cpu='" + cpu + '\'' +
-                ", gpu='" + gpu + '\'' +
-                ", ram='" + ram + '\'' +
-                ", mauSac='" + mauSac + '\'' +
-                ", dungLuong='" + dungLuong + '\'' +
-                ", hinhAnh='" + hinhAnh + '\'' +
-                '}';
-    }
+
     public Object toDataSP(){
         return new Object[]{id,maSP,tenSP};
     }

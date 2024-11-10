@@ -4,6 +4,11 @@
  */
 package View.form;
 
+import Model.Model_SanPham;
+import Repository.reponsitory_SanPham;
+import java.util.ArrayList;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author macbook
@@ -13,8 +18,29 @@ public class Form_BH extends javax.swing.JPanel {
     /**
      * Creates new form Form_SP
      */
+    
+    DefaultTableModel model;
+    DefaultTableModel model_SPChitiet;
+    private reponsitory_SanPham rp = new reponsitory_SanPham();
     public Form_BH() {
         initComponents();
+        fillToTable_ChiTiet(rp.gettAll_SpChiTiet());
+    }
+    
+    void fillToTable(ArrayList<Model_SanPham> ds) {
+        model = (DefaultTableModel) tbl_DSSP.getModel();
+        model.setRowCount(0);
+        for (Model_SanPham d : ds) {
+            model.addRow((Object[]) d.toDataSP());
+        }
+    }
+
+    void fillToTable_ChiTiet(ArrayList<Model_SanPham> ds) {
+        model_SPChitiet = (DefaultTableModel) tbl_DSSP.getModel();
+        model_SPChitiet.setRowCount(0);
+        for (Model_SanPham d : ds) {
+            model_SPChitiet.addRow((Object[]) d.toData_CTSP());
+        }
     }
 
     /**
@@ -169,13 +195,13 @@ public class Form_BH extends javax.swing.JPanel {
 
         tbl_DSSP.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null}
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "Mã SP", "Số lượng tồn kho", "Giá", "CPU", "GPU", "Ram", "Màu sắc", "Xuất xứ", "Dung lượng"
+                "Mã SP", "Số lượng tồn kho", "Giá", "CPU", "GPU", "Ram", "Màu sắc", "Dung lượng"
             }
         ));
         jScrollPane3.setViewportView(tbl_DSSP);
